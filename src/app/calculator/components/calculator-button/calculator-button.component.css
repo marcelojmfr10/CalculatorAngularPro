@@ -1,0 +1,15 @@
+@reference "tailwindcss";
+
+button {
+  @apply w-full outline-none focus:outline-none h-16 hover:bg-indigo-700/20 text-white text-xl font-light;
+}
+
+/* angular recomienda no utilizar el ng-deep ya que convierte la clase en una global
+otra solución fue colocar esta clase en el estilo global
+::ng-deep .is-command {
+  @apply bg-indigo-700/20;
+} */
+
+.is-command {
+  @apply bg-indigo-700/20;
+}
