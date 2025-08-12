@@ -13,3 +13,7 @@ otra solución fue colocar esta clase en el estilo global
 .is-command {
   @apply bg-indigo-700/20;
 }
+
+.is-pressed {
+  @apply bg-indigo-800/20;
+}
