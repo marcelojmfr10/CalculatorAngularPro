@@ -14,7 +14,6 @@ export class CalculatorService {
   public lastOperator = signal('+');
 
   public constructNumber(value: string): void {
-
     if (![...numbers, ...operators, ...specialOperators].includes(value)) {
       console.log('Invalid input', value);
       return;
