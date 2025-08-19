@@ -37,8 +37,6 @@ export class CalculatorComponent {
 
   // @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-
-
     const keyEquivalents: Record<string, string> = {
       Escape: 'C',
       Clear: 'C',
@@ -57,4 +55,4 @@ export class CalculatorComponent {
     });
   }
 
- }
+}
