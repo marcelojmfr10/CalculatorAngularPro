@@ -5,10 +5,9 @@ const operators = ['+', '-', '*', '/', '÷', 'x'];
 const specialOperators = ['+/-', '%', '.', '=', 'C', 'Backspace'];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalculatorService {
-
   public resultText = signal('0');
   public subResultText = signal('0');
   public lastOperator = signal('+');
@@ -72,21 +71,24 @@ export class CalculatorService {
         return;
       }
 
-      this.resultText.update(currentValue => currentValue + '.');
+      this.resultText.update((currentValue) => currentValue + '.');
       return;
     }
 
-    if (value === '0' && (this.resultText() === '0' || this.resultText() === '-0')) {
+    if (
+      value === '0' &&
+      (this.resultText() === '0' || this.resultText() === '-0')
+    ) {
       return;
     }
 
     if (value === '+/-') {
       if (this.resultText().includes('-')) {
-        this.resultText.update(currentValue => currentValue.slice(1));
+        this.resultText.update((currentValue) => currentValue.slice(1));
         return;
       }
 
-      this.resultText.update(currentValue => '-' + currentValue);
+      this.resultText.update((currentValue) => '-' + currentValue);
     }
 
     if (numbers.includes(value)) {
@@ -100,10 +102,9 @@ export class CalculatorService {
         return;
       }
 
-      this.resultText.update(currentValue => currentValue + value);
+      this.resultText.update((currentValue) => currentValue + value);
       return;
     }
-
   }
 
   public calculateResult() {
@@ -136,5 +137,4 @@ export class CalculatorService {
     this.subResultText.set('0');
     // this.lastOperator.set('+');
   }
-
 }

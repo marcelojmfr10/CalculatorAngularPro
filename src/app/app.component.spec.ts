@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
   let fixture: ComponentFixture<AppComponent>;
   let compiled: HTMLElement;
 
@@ -47,7 +46,10 @@ describe('AppComponent', () => {
   it('should render router-outlet wrapped with css classes', () => {
     const divElement = compiled.querySelector('div');
 
-    const cssClasses = 'min-w-screen min-h-screen bg-slate-600 flex items-center justify-center px-5 py-5'.split(' ');
+    const cssClasses =
+      'min-w-screen min-h-screen bg-slate-600 flex items-center justify-center px-5 py-5'.split(
+        ' ',
+      );
     expect(divElement).toBeDefined();
 
     // divElement?.classList.forEach((className) => {
@@ -65,7 +67,11 @@ describe('AppComponent', () => {
     const anchorElement = compiled.querySelector('a');
     expect(anchorElement).toBeDefined();
     expect(anchorElement?.title).toContain('Buy me a beer');
-    expect(anchorElement?.getAttribute('href')).toBe('https://www.buymeacoffee.com/scottwindon');
-    expect(anchorElement?.href).toBe('https://www.buymeacoffee.com/scottwindon');
+    expect(anchorElement?.getAttribute('href')).toBe(
+      'https://www.buymeacoffee.com/scottwindon',
+    );
+    expect(anchorElement?.href).toBe(
+      'https://www.buymeacoffee.com/scottwindon',
+    );
   });
 });

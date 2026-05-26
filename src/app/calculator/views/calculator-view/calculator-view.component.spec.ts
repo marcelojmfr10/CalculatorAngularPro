@@ -1,9 +1,7 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import CalculatorViewComponent from './calculator-view.component';
 
 describe('CalculatorViewComponent', () => {
-
   let fixture: ComponentFixture<CalculatorViewComponent>;
   let compiled: HTMLElement;
   let component: CalculatorViewComponent;
@@ -26,14 +24,17 @@ describe('CalculatorViewComponent', () => {
     expect(compiled.querySelector('calculator')).toBeTruthy();
   });
 
-  it('should containt basic css classes', () =>{
+  it('should containt basic css classes', () => {
     const divElement = compiled.querySelector('div');
     const divClasses = divElement?.classList.value.split(' ');
 
-    const shouldHave = 'w-full mx-auto rounded-xl bg-gray-100 shadow-xl text-gray-800 relative overflow-hidden'.split(' ');
+    const shouldHave =
+      'w-full mx-auto rounded-xl bg-gray-100 shadow-xl text-gray-800 relative overflow-hidden'.split(
+        ' ',
+      );
 
     shouldHave.forEach((className) => {
       expect(divClasses).toContain(className);
-    })
+    });
   });
 });

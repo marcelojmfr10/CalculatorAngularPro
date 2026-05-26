@@ -1,8 +1,7 @@
-import { TestBed } from "@angular/core/testing";
-import { CalculatorService } from "./calculator.service";
+import { TestBed } from '@angular/core/testing';
+import { CalculatorService } from './calculator.service';
 
 describe('CalculatorService', () => {
-
   let service: CalculatorService;
 
   beforeEach(() => {
@@ -10,9 +9,9 @@ describe('CalculatorService', () => {
     service = TestBed.inject(CalculatorService);
   });
 
-  beforeAll(() => { });
-  afterEach(() => { });
-  afterAll(() => { });
+  beforeAll(() => {});
+  afterEach(() => {});
+  afterAll(() => {});
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -138,6 +137,4 @@ describe('CalculatorService', () => {
     service.constructNumber('1');
     expect(service.resultText().length).toBe(10);
   });
-
-
 });

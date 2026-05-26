@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, HostListener, inject, viewChildren } from '@angular/core';
-import { CalculatorButtonComponent } from "../calculator-button/calculator-button.component";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  HostListener,
+  inject,
+  viewChildren,
+} from '@angular/core';
+import { CalculatorButtonComponent } from '../calculator-button/calculator-button.component';
 import { CalculatorService } from '@/calculator/services/calculator.service';
 
 @Component({
@@ -8,8 +15,8 @@ import { CalculatorService } from '@/calculator/services/calculator.service';
   templateUrl: './calculator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '(document:keyup)': 'handleKeyboardEvent($event)'
-  }
+    '(document:keyup)': 'handleKeyboardEvent($event)',
+  },
   // styles: `
   //   @reference "tailwindcss";
   //   .is-command {
@@ -18,7 +25,6 @@ import { CalculatorService } from '@/calculator/services/calculator.service';
   // `
 })
 export class CalculatorComponent {
-
   private calculatorService = inject(CalculatorService);
 
   // get resultText() {
@@ -42,17 +48,16 @@ export class CalculatorComponent {
       Clear: 'C',
       x: '*',
       '/': '÷',
-      Enter: '='
+      Enter: '=',
     };
 
     const key = event.key;
-    const keyValue = keyEquivalents[key] ?? key
+    const keyValue = keyEquivalents[key] ?? key;
 
     this.handleClick(keyValue);
 
-    this.calculatorButtons().forEach(button => {
+    this.calculatorButtons().forEach((button) => {
       button.keyboardPressedStyle(keyValue);
     });
   }
-
 }

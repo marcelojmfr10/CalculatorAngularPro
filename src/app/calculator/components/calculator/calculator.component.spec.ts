@@ -7,7 +7,9 @@ import { CalculatorButtonComponent } from '../calculator-button/calculator-butto
 
 class MockCalculatorService {
   public resultText = jasmine.createSpy('resultText').and.returnValue('100.00');
-  public subResultText = jasmine.createSpy('subResultText').and.returnValue('20');
+  public subResultText = jasmine
+    .createSpy('subResultText')
+    .and.returnValue('20');
   public lastOperator = jasmine.createSpy('lastOperator').and.returnValue('-');
 
   public constructNumber = jasmine.createSpy('constructNumber');
@@ -24,15 +26,18 @@ describe('CalculatorComponent', () => {
       imports: [CalculatorComponent],
       providers: [
         {
-          provide: CalculatorService, useClass: MockCalculatorService
-        }
-      ]
+          provide: CalculatorService,
+          useClass: MockCalculatorService,
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CalculatorComponent);
     compiled = fixture.nativeElement as HTMLElement;
     component = fixture.componentInstance;
-    service = TestBed.inject(CalculatorService) as unknown as MockCalculatorService;
+    service = TestBed.inject(
+      CalculatorService,
+    ) as unknown as MockCalculatorService;
 
     // fixture.detectChanges();
   });
@@ -76,10 +81,10 @@ describe('CalculatorComponent', () => {
   });
 
   it('should handle keyboard events correctly', () => {
-    const eventEnter = new KeyboardEvent('keyup', {key: 'Enter'});
+    const eventEnter = new KeyboardEvent('keyup', { key: 'Enter' });
     document.dispatchEvent(eventEnter);
 
-    const eventESC = new KeyboardEvent('keyup', {key: 'Escape'});
+    const eventESC = new KeyboardEvent('keyup', { key: 'Escape' });
     document.dispatchEvent(eventESC);
 
     expect(service.constructNumber).toHaveBeenCalled();
@@ -97,5 +102,4 @@ describe('CalculatorComponent', () => {
 
     expect(compiled.querySelector('#sub-result')?.textContent).toBe('10 -');
   });
-
 });

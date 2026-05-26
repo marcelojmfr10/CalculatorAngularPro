@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CalculatorButtonComponent } from './calculator-button.component';
 import { Component } from '@angular/core';
@@ -7,15 +6,14 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CalculatorButtonComponent],
   template: `
-  <calculator-button>
-    <span class="projected-content underline">test content</span>
-  </calculator-button>
-  `
+    <calculator-button>
+      <span class="projected-content underline">test content</span>
+    </calculator-button>
+  `,
 })
-class TestHostComponent { }
+class TestHostComponent {}
 
 describe('CalculatorButtonComponent', () => {
-
   let fixture: ComponentFixture<CalculatorButtonComponent>;
   let compiled: HTMLElement;
   let component: CalculatorButtonComponent;
@@ -90,6 +88,4 @@ describe('CalculatorButtonComponent', () => {
     expect(projectedContent).toBeTruthy();
     expect(projectedContent?.classList.contains('underline')).toBeTruthy();
   });
-
-
 });
